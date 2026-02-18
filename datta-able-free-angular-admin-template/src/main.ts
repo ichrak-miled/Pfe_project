@@ -1,12 +1,13 @@
 /// <reference types="@angular/localize" />
 
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { enableProdMode } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 import { environment } from './environments/environment';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations';
-
-import { AppRoutingModule } from './app/app-routing.module';
+import { routes } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 
 if (environment.production) {
@@ -14,5 +15,5 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserModule, AppRoutingModule), provideAnimations()]
+  providers: [provideRouter(routes), provideHttpClient(), provideAnimations()]
 }).catch((err) => console.error(err));

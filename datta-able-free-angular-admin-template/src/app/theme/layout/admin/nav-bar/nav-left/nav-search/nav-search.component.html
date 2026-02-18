@@ -1,6 +1,6 @@
 <div #mainSearch id="main-search" class="main-search">
   <div class="input-group">
-    <input type="text" id="m-search" class="form-control" placeholder="Search . . ." [style.width]="searchWidthString" />
+    <input type="text" id="m-search" class="form-control search-input" [class.search-input-open]="isOpen" placeholder="Search . . ." />
 
     <a href="javascript:void(0)" class="input-group-append search-close" (click)="searchOff()">
       <i class="feather icon-x input-group-text"></i>

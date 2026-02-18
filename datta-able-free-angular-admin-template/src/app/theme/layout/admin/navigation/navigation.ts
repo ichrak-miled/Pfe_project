@@ -13,6 +13,7 @@ export interface NavigationItem {
   breadcrumbs?: boolean;
   children?: NavigationItem[];
 }
+
 export const NavigationItems: NavigationItem[] = [
   {
     id: 'navigation',
@@ -116,7 +117,7 @@ export const NavigationItems: NavigationItem[] = [
         id: 'apexChart',
         title: 'ApexChart',
         type: 'item',
-        url: 'apexchart',
+        url: '/apexchart',
         classes: 'nav-item',
         icon: 'feather icon-pie-chart'
       }
@@ -180,11 +181,11 @@ export const NavigationItems: NavigationItem[] = [
         external: true
       },
       {
-        id:'add-vehicule',
-        title:'Ajouter véhicule',
-        type:'item',
-        url:'/add-vehicule',
-        icon:'feather icon-plus',
+        id: 'add-vehicule',
+        title: 'Ajouter vehicule',
+        type: 'item',
+        url: '/add-vehicule',
+        icon: 'feather icon-plus'
       }
     ]
   }

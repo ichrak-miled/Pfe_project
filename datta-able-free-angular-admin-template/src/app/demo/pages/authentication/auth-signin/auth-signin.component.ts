@@ -1,5 +1,5 @@
 // angular import
-import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { email, Field, form, minLength, required } from '@angular/forms/signals';
@@ -11,11 +11,10 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
   selector: 'app-auth-signin',
   imports: [CommonModule, RouterModule, SharedModule, Field],
   templateUrl: './auth-signin.component.html',
-  styleUrls: ['./auth-signin.component.scss']
+  styleUrls: ['./auth-signin.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthSigninComponent {
-  private cd = inject(ChangeDetectorRef);
-
   submitted = signal(false);
   error = signal('');
   showPassword = signal(false);
@@ -36,9 +35,11 @@ export class AuthSigninComponent {
     this.submitted.set(true);
     this.error.set('');
     event.preventDefault();
-    const credentials = this.loginModal();
-    console.log('login user logged in with:', credentials);
-    this.cd.detectChanges();
+
+    if (this.loginForm.email().invalid() || this.loginForm.password().invalid()) {
+      this.error.set('Please enter valid login credentials.');
+      return;
+    }
   }
 
   togglePasswordVisibility() {

@@ -1,28 +1,26 @@
 // Angular import
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-
-// project import
-import { SpinnerComponent } from './theme/shared/components/spinner/spinner.component';
 
 @Component({
   selector: 'app-root',
-  imports: [SpinnerComponent, RouterModule],
+  imports: [RouterModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
 
   title = 'datta-able';
 
   // life cycle hook
   ngOnInit() {
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
       }
-      window.scrollTo(0, 0);
     });
   }
 }

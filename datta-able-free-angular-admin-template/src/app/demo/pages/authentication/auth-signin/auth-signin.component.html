@@ -13,6 +13,9 @@
             <i class="feather icon-unlock auth-icon"></i>
           </div>
           <h3 class="mb-4">Login</h3>
+          @if (error()) {
+            <div class="alert alert-danger text-start" role="alert">{{ error() }}</div>
+          }
           <div class="input-group mb-3">
             <input
               type="email"

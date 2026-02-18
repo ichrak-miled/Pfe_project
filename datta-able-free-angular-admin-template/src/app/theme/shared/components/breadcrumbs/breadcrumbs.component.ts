@@ -1,5 +1,6 @@
 // Angular Import
-import { Component, Input, inject } from '@angular/core';
+import { Component, DestroyRef, Input, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule, Event } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -9,8 +10,7 @@ import { NavigationItem, NavigationItems } from 'src/app/theme/layout/admin/navi
 import { SharedModule } from '../../shared.module';
 
 interface titleType {
-  // eslint-disable-next-line
-  url: string | boolean | any | undefined;
+  url: string | boolean | undefined;
   title: string;
   breadcrumbs: unknown;
   type: string;
@@ -25,6 +25,7 @@ interface titleType {
 export class BreadcrumbsComponent {
   private route = inject(Router);
   private titleService = inject(Title);
+  private readonly destroyRef = inject(DestroyRef);
 
   // public props
   @Input() type: string;
@@ -42,13 +43,13 @@ export class BreadcrumbsComponent {
 
   // public method
   setBreadcrumb() {
-    this.route.events.subscribe((router: Event) => {
+    this.route.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((router: Event) => {
       if (router instanceof NavigationEnd) {
         const activeLink = router.url;
         const breadcrumbList = this.filterNavigation(this.navigations, activeLink);
         this.navigationList = breadcrumbList;
         const title = breadcrumbList[breadcrumbList.length - 1]?.title || 'Welcome';
-        this.titleService.setTitle(title + ' | Berry Angular Admin Template');
+        this.titleService.setTitle(title + ' | Datta Able Angular Admin Template');
       }
     });
   }
