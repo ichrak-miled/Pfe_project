@@ -1,0 +1,197 @@
+body {
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+}
+
+.pcoded-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none;
+}
+
+.pcoded-header .navbar-nav > li .nav-link,
+.pcoded-header .navbar-nav > li > a {
+  color: var(--color-text-secondary);
+}
+
+.pcoded-header .navbar-nav > li .nav-link:hover,
+.pcoded-header .navbar-nav > li > a:hover {
+  color: var(--color-primary);
+}
+
+.pcoded-navbar {
+  background: var(--color-sidebar-bg);
+  box-shadow: inset -1px 0 0 rgba(148, 163, 184, 0.12);
+}
+
+.pcoded-navbar .header-logo {
+  background: var(--color-sidebar-bg);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.pcoded-navbar .pcoded-menu-caption {
+  color: var(--color-sidebar-text);
+}
+
+.pcoded-navbar .pcoded-inner-navbar li > a {
+  border-radius: 10px;
+  margin: 3px 10px 0;
+  color: var(--color-sidebar-text);
+}
+
+.pcoded-navbar .pcoded-inner-navbar li > a:hover,
+.pcoded-navbar .pcoded-inner-navbar li.active > a,
+.pcoded-navbar .pcoded-inner-navbar li.pcoded-trigger > a {
+  background: rgba(37, 99, 235, 0.16);
+  color: var(--color-sidebar-text-active);
+}
+
+.pcoded-navbar .pcoded-inner-navbar app-nav-item > li.active:after,
+.pcoded-navbar .pcoded-inner-navbar > app-nav-group > app-nav-collapse > li.active:after,
+.pcoded-navbar .pcoded-inner-navbar > app-nav-group > app-nav-collapse > li.pcoded-trigger:after {
+  background-color: var(--color-primary);
+}
+
+.pcoded-navbar .version label {
+  background: rgba(37, 99, 235, 0.14);
+  color: var(--color-sidebar-chip);
+}
+
+.pcoded-main-container {
+  background: var(--color-bg);
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.card .card-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card .card-header h5 {
+  color: var(--color-text-primary);
+}
+
+.card .card-header h5:after {
+  background-color: var(--color-primary);
+}
+
+.btn {
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-surface);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.form-control,
+.custom-select,
+.form-select,
+.input-group {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.badge.bg-primary {
+  background: var(--color-primary) !important;
+}
+
+.badge.bg-success {
+  background: var(--color-success) !important;
+}
+
+.badge.bg-warning {
+  background: var(--color-warning) !important;
+}
+
+.badge.bg-danger {
+  background: var(--color-danger) !important;
+}
+
+.progress {
+  height: 10px;
+  background-color: var(--color-progress-bg);
+  border-radius: 999px;
+}
+
+.progress-bar {
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.progress-bar.progress-c-theme,
+.progress-bar.progress-c-theme2 {
+  background: var(--color-primary);
+}
+
+.auth-wrapper {
+  background:
+    radial-gradient(1000px 500px at 90% -10%, rgba(37, 99, 235, 0.16), transparent),
+    radial-gradient(800px 420px at -10% 110%, rgba(16, 185, 129, 0.1), transparent),
+    var(--color-bg);
+}
+
+.auth-wrapper .auth-bg .r:first-child,
+.auth-wrapper .auth-bg .r:last-child {
+  opacity: 0.45;
+}
+
+.auth-wrapper .auth-icon:before {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+}
+
+.page-header-title + .breadcrumb > .breadcrumb-item a {
+  color: var(--color-text-secondary);
+}
+
+.page-header-title + .breadcrumb > .breadcrumb-item:last-child a {
+  color: var(--color-text-primary);
+}

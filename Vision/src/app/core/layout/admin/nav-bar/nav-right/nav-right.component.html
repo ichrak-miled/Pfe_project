@@ -1,0 +1,28 @@
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/vehicles']">Vehicles</a>
+  </li>
+  <li class="nav-item">
+    <div class="dropdown drp-user" ngbDropdown placement="auto" (openChange)="onUserMenuOpen($event)">
+      <a href="javascript:void(0)" ngbDropdownToggle data-toggle="dropdown">
+        <i class="icon feather icon-user"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end profile-notification" ngbDropdownMenu [@dropdownMotion]="userMenuOpen ? 'open' : 'closed'">
+        <ul class="pro-body">
+          <li>
+            <a [routerLink]="['/auth/login']" class="dropdown-item">
+              <i class="feather icon-log-in"></i>
+              Sign in
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/auth/register']" class="dropdown-item">
+              <i class="feather icon-user-plus"></i>
+              Sign up
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>

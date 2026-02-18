@@ -1,0 +1,100 @@
+.vehicle-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.vehicle-form-field__control-wrap {
+  position: relative;
+  min-height: 56px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.vehicle-form-field .vehicle-control {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  padding: 20px 16px 10px;
+}
+
+.vehicle-form-field .vehicle-control::placeholder {
+  color: transparent;
+}
+
+.vehicle-form-field .vehicle-control:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.vehicle-form-field .vehicle-control--select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 40px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-text-secondary) 50%),
+    linear-gradient(135deg, var(--color-text-secondary) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 27px,
+    calc(100% - 12px) 27px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.vehicle-form-field__label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition:
+    top 180ms ease,
+    transform 180ms ease,
+    font-size 180ms ease,
+    color 180ms ease;
+}
+
+.vehicle-form-field__required {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+.vehicle-form-field--filled .vehicle-form-field__label,
+.vehicle-form-field--focused .vehicle-form-field__label {
+  top: 14px;
+  transform: translateY(0);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.vehicle-form-field--focused .vehicle-form-field__control-wrap {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.vehicle-form-field--invalid .vehicle-form-field__control-wrap {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 4px rgba(212, 60, 75, 0.12);
+}
+
+.vehicle-form-field__message {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.vehicle-form-field__message--error {
+  color: var(--color-danger);
+}

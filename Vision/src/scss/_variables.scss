@@ -1,0 +1,119 @@
+// =======================================
+//     SaaS theme tokens
+// =======================================
+
+// Layout
+$header-height: 70px;
+$Menu-width: 264px;
+$Menu-collapsed-width: 80px;
+
+// Core palette
+$primary-color: #2563eb;
+$primary-hover-color: #1d4ed8;
+$success-color: #10b981;
+$warning-color: #f59e0b;
+$danger-color: #ef4444;
+
+$theme-background: #f8fafc;
+$surface-color: #ffffff;
+$theme-font-color: #64748b;
+$theme-heading-color: #0f172a;
+$theme-border: #e2e8f0;
+
+// Support tokens used by legacy theme classes
+$secondary-color: #64748b;
+$info-color: #0ea5e9;
+$default-color: #94a3b8;
+$light-color: #f8fafc;
+$dark-color: #0f172a;
+$inverse-color: $dark-color;
+$white: #ffffff;
+$form-bg: #f8fafc;
+$dark-layout: #0f172a;
+$dark-layout-font: #cbd5e1;
+
+// Gradients
+$theme-color: linear-gradient(135deg, $primary-color 0%, $primary-hover-color 100%);
+$theme-color2: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+$purple-color: #7c3aed;
+$layout-6-bg-color: #2563eb;
+
+// Header
+$brand-background: #0f172a;
+$header-dark-background: #0f172a;
+$header-dark-text-color: #f8fafc;
+$header-light-background: #ffffff;
+$header-light-text-color: #0f172a;
+
+// Menu
+$menu-caption-color: #cbd5e1;
+$menu-dark-background: #0f172a;
+$menu-dark-text-color: #94a3b8;
+$menu-light-background: #ffffff;
+$menu-light-text-color: #0f172a;
+$menu-active-color: $primary-color;
+
+// Theme utility lists
+$menu-icon-color: $primary-color, $danger-color, $success-color, $warning-color, $info-color, $secondary-color;
+$color-header-name: blue, red, green, amber, slate;
+$color-header-color: $primary-color, $danger-color, $success-color, $warning-color, $secondary-color;
+$color-menu-name: blue, red, green, amber, slate;
+$color-menu-color: $primary-color, $danger-color, $success-color, $warning-color, $secondary-color;
+$color-active-name: blue, red, green, amber, slate;
+$color-active-color: $primary-color, $danger-color, $success-color, $warning-color, $secondary-color;
+$color-title-name: blue, red, green, amber, slate;
+$color-title-color: $primary-color, $danger-color, $success-color, $warning-color, $secondary-color;
+
+$theme-font-family: 'Inter', 'Segoe UI', sans-serif;
+$theme-font-size: 14px;
+$color-name: c-blue, c-red, c-green, c-yellow, c-purple;
+$color-color: $primary-color, $danger-color, $success-color, $warning-color, $purple-color;
+$color-bt-name: primary, danger, success, warning, info;
+$color-bt-color: $primary-color, $danger-color, $success-color, $warning-color, $info-color;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    'primary': $primary-color,
+    'secondary': $secondary-color,
+    'success': $success-color,
+    'info': $info-color,
+    'warning': $warning-color,
+    'danger': $danger-color,
+    'light': $light-color,
+    'dark': $dark-color
+  ),
+  $theme-colors
+);
+
+$yiq-contrasted-threshold: 170 !default;
+$yiq-dark-color: #0f172a;
+$yiq-light-color: #ffffff;
+$theme-color-interval: 8% !default;
+$alert-bg-level: -10 !default;
+$alert-border-level: -9 !default;
+$alert-color-level: 6 !default;
+$soft-bg-level: -85%;
+
+// CSS variables for component-level theming
+:root {
+  --color-primary: #{$primary-color};
+  --color-primary-hover: #{$primary-hover-color};
+  --color-success: #{$success-color};
+  --color-warning: #{$warning-color};
+  --color-danger: #{$danger-color};
+  --color-bg: #{$theme-background};
+  --color-surface: #{$surface-color};
+  --color-text-primary: #{$theme-heading-color};
+  --color-text-secondary: #{$theme-font-color};
+  --color-border: #{$theme-border};
+  --color-sidebar-bg: #0b1220;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-text-active: #f8fafc;
+  --color-sidebar-chip: #bfdbfe;
+  --color-progress-bg: #eaf0f6;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-focus: 0 0 0 4px rgba(37, 99, 235, 0.14);
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}

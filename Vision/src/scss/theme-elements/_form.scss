@@ -1,0 +1,114 @@
+/**  =====================
+      Form component css start
+==========================  **/
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
+
+.custom-select,
+.form-control {
+  background: $surface-color;
+  border-color: $theme-border;
+  color: $theme-heading-color;
+  padding: 10px 20px;
+  font-size: 14px;
+  transition:
+    border-color 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  &:focus {
+    background: $surface-color;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.16);
+  }
+
+  &::-moz-placeholder {
+    color: $theme-font-color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $theme-font-color;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $theme-font-color;
+  }
+}
+// input group start
+
+.input-group {
+  background: $surface-color;
+  transition:
+    border-color 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  .input-group-text {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: transparent;
+    i {
+      font-size: 20px;
+    }
+  }
+
+  .custom-file-label {
+    margin-bottom: 0;
+  }
+
+  .btn {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
+.cust-file-button {
+  .custom-file-label {
+    height: calc(2.25rem + 8px);
+    line-height: 2.5;
+
+    &::after {
+      padding: 0.775rem 0.75rem;
+      height: 2.65rem;
+    }
+  }
+}
+
+.custom-select {
+  height: calc(2.25rem + 9px);
+}
+// input group End
+/**====== Form Componant css end ======**/
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.55rem + 2px);
+}
+.input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]),
+.input-group-lg > .input-group-append > select.input-group-text:not([size]):not([multiple]),
+.input-group-lg > .input-group-prepend > select.btn:not([size]):not([multiple]),
+.input-group-lg > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
+.input-group-lg > select.form-control:not([size]):not([multiple]),
+select.form-control-lg:not([size]):not([multiple]) {
+  height: calc(3.375rem + 2px);
+}
+
+.minicolors {
+  .form-control {
+    padding: 6px 12px 5px 44px;
+  }
+}
+// form-select
+
+.select2-container {
+  width: 100% !important;
+}
+
+.bootstrap-tagsinput {
+  width: 100%;
+}

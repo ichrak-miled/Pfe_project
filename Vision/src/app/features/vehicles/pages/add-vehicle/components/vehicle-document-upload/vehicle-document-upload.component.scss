@@ -1,0 +1,203 @@
+.vehicle-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.vehicle-upload__input {
+  display: none;
+}
+
+.vehicle-upload__dropzone {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 84px;
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--color-primary) 4%, white);
+  padding: 16px;
+  cursor: pointer;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.vehicle-upload__dropzone:hover,
+.vehicle-upload--dragging .vehicle-upload__dropzone {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, white);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+
+.vehicle-upload--invalid .vehicle-upload__dropzone {
+  border-color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 7%, white);
+}
+
+.vehicle-upload__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.vehicle-upload__copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.vehicle-upload__title {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.vehicle-upload__title span {
+  color: var(--color-danger);
+}
+
+.vehicle-upload__description {
+  margin: 2px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+}
+
+.vehicle-upload__browse {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: 600;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.vehicle-upload__browse:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.16);
+  transform: scale(1.02);
+}
+
+.vehicle-upload__preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--color-surface);
+  animation: upload-preview-in 220ms ease;
+  min-width: 0;
+}
+
+.vehicle-upload__preview-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.vehicle-upload__preview-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--color-primary) 10%, white);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.vehicle-upload__preview-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.vehicle-upload__file-name {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vehicle-upload__file-size {
+  margin: 2px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.76rem;
+}
+
+.vehicle-upload__remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--color-danger);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background-color 180ms ease;
+}
+
+.vehicle-upload__remove:hover {
+  background: color-mix(in srgb, var(--color-danger) 10%, white);
+}
+
+.vehicle-upload__error {
+  margin: 0;
+  color: var(--color-danger);
+  font-size: 0.78rem;
+}
+
+@keyframes upload-preview-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 575px) {
+  .vehicle-upload__dropzone {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .vehicle-upload__browse {
+    width: 100%;
+  }
+
+  .vehicle-upload__preview {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .vehicle-upload__remove {
+    width: 100%;
+    justify-content: center;
+  }
+}

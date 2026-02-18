@@ -1,0 +1,48 @@
+// angular import
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { email, Field, form, minLength, required } from '@angular/forms/signals';
+
+// project import
+import { SharedModule } from 'src/app/shared/shared.module';
+
+@Component({
+  selector: 'app-auth-signin',
+  imports: [CommonModule, RouterModule, SharedModule, Field],
+  templateUrl: './auth-signin.component.html',
+  styleUrls: ['./auth-signin.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class AuthSigninComponent {
+  submitted = signal(false);
+  error = signal('');
+  showPassword = signal(false);
+
+  loginModal = signal<{ email: string; password: string }>({
+    email: '',
+    password: ''
+  });
+
+  loginForm = form(this.loginModal, (schemaPath) => {
+    required(schemaPath.email, { message: 'Email is required' });
+    email(schemaPath.email, { message: 'Enter a valid email address' });
+    required(schemaPath.password, { message: 'Password is required' });
+    minLength(schemaPath.password, 8, { message: 'Password must be at least 8 characters' });
+  });
+
+  onSubmit(event: Event) {
+    this.submitted.set(true);
+    this.error.set('');
+    event.preventDefault();
+
+    if (this.loginForm.email().invalid() || this.loginForm.password().invalid()) {
+      this.error.set('Please enter valid login credentials.');
+      return;
+    }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword.set(!this.showPassword());
+  }
+}

@@ -1,0 +1,58 @@
+<section class="dashboard-page" @dashboardFade @cardStagger>
+  <header class="dashboard-header">
+    <div>
+      <p class="dashboard-eyebrow">Operations Overview</p>
+      <h1>Fleet KPI Dashboard</h1>
+      <p class="dashboard-subtitle">Track core vehicle operations metrics in one clean view.</p>
+    </div>
+    <a class="btn btn-primary dashboard-header__action" [routerLink]="['/vehicles']">
+      <i class="feather icon-plus-circle me-1"></i>
+      Add Vehicle
+    </a>
+  </header>
+
+  @if (isLoading) {
+    <article class="dashboard-empty-state">
+      <i class="feather icon-loader spin"></i>
+      <h3>Loading KPI data...</h3>
+    </article>
+  } @else if (hasData()) {
+    <div class="row g-3 dashboard-kpi-grid">
+      @for (kpi of kpis; track trackKpi($index, kpi)) {
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="kpi-card">
+            <p class="kpi-card__label">{{ kpi.label }}</p>
+            <h2 class="kpi-card__value">
+              {{ kpi.value }}
+              @if (kpi.unit) {
+                <span>{{ kpi.unit }}</span>
+              }
+            </h2>
+            <p class="kpi-card__trend" [ngClass]="trendClass(kpi)">
+              <i
+                class="feather"
+                [ngClass]="{
+                  'icon-trending-up': kpi.trend === 'up',
+                  'icon-trending-down': kpi.trend === 'down',
+                  'icon-minus': !kpi.trend || kpi.trend === 'neutral'
+                }"
+              ></i>
+              {{ kpi.changeLabel || 'No trend data yet' }}
+            </p>
+          </article>
+        </div>
+      }
+    </div>
+
+    <section class="dashboard-footer-note">
+      <p>Last refresh: {{ lastUpdatedAt | date: 'medium' }}</p>
+    </section>
+  } @else {
+    <article class="dashboard-empty-state">
+      <i class="feather icon-inbox"></i>
+      <h3>No KPI data available</h3>
+      <p>Connect your backend KPI endpoint or add operational records to populate the dashboard.</p>
+      <a class="btn btn-outline-primary" [routerLink]="['/vehicles']">Go to Vehicles</a>
+    </article>
+  }
+</section>

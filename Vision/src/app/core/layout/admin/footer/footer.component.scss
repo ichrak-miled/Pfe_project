@@ -1,0 +1,33 @@
+.app-footer {
+  padding: 20px;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+
+  .footer-content {
+    font-size: 14px;
+    color: #64748b;
+  }
+
+  .heart {
+    display: inline-block;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+
+  strong {
+    color: #2563eb;
+    margin-left: 4px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

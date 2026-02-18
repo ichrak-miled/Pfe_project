@@ -1,0 +1,31 @@
+$primary: $primary-color;
+$secondary: $secondary-color;
+$success: $success-color;
+$info: $info-color;
+$warning: $warning-color;
+$danger: $danger-color;
+$light: $light-color;
+$dark: $dark-color;
+
+$body-bg: $theme-background;
+$body-color: $theme-font-color;
+$border-color: $theme-border;
+$card-bg: $surface-color;
+$card-border-color: $theme-border;
+$input-bg: $surface-color;
+$input-color: $theme-heading-color;
+$input-border-color: $theme-border;
+$input-placeholder-color: $theme-font-color;
+$input-focus-border-color: $primary-color;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.14);
+$component-active-bg: $primary-color;
+$component-active-color: $white;
+$link-color: $primary-color;
+$link-hover-color: $primary-hover-color;
+$btn-border-radius: 0.625rem;
+$card-border-radius: 0.875rem;
+$badge-border-radius: 0.5rem;
+$progress-bg: $form-bg;
+$progress-border-radius: 999px;
+
+@import 'bootstrap/scss/bootstrap';
